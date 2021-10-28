@@ -3,18 +3,22 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-easy-toast";
 
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Button } from "react-native-elements";
 
 import { UserContext } from "../../context/UserContext";
 
 import Loader from "../../components/UI/Loader";
 
+import UserInfo from "../../components/Account/UserInfo";
+
 const LoggedUserScreen = () => {
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
   const [userInfo, setUserInfo] = useState(null);
   const [reloadUserInfo, setReloadUserInfo] = useState(false);
+
+  const toastRef = useRef();
 
   const { user, logout } = useContext(UserContext);
 
@@ -29,27 +33,39 @@ const LoggedUserScreen = () => {
 
   const signOutHandler = () => {
     AsyncStorage.removeItem("jwt").then(() => {
-      navigation.navigate("account");
       logout();
-      console.log("out");
+
+      navigation.navigate("account");
     });
   };
 
   return (
     <View>
-      <Text>{userInfo ? userInfo._id : "No data"}</Text>
+      {userInfo && (
+        <UserInfo
+          userInfo={userInfo}
+          setLoading={setLoading}
+          setLoadingText={setLoadingText}
+          toastRef={toastRef}
+        />
+      )}
       <Button
         title="Log Out"
         buttonStyle={styles.closeSessionButton}
         titleStyle={styles.closeSessionText}
         onPress={() => signOutHandler()}
       />
+      <Toast ref={toastRef} position="center" opacity={0.9} />
       <Loader isVisible={loading} text={loadingText} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  userInfoView: {
+    minHeight: "100%",
+    backgroundColor: "#f2f2f2",
+  },
   closeSessionButton: {
     marginTop: 30,
     borderRadius: 0,
