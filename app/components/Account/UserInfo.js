@@ -15,8 +15,6 @@ const UserInfo = (props) => {
     setLoadingText,
   } = props;
 
-  console.log(_id);
-
   const uploadImage = async (uri) => {
     setLoadingText("Updating avatar");
     setLoading(true);
