@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "sidejob01-rn_tourist_places",
+    "name": "purik",
     "slug": "sidejob01-rn_tourist_places",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,10 +18,25 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.darkclownmedia.purik",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyArns3FKjlKGhVKSZfr0Szs8_Rzjjj9QMs"
+        }
+      },
+      "permissions": [
+        "CAMERA_ROLL",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "FOREGROUND_SERVICE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
