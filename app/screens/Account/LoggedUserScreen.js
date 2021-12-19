@@ -50,7 +50,7 @@ const LoggedUserScreen = () => {
         />
       )}
       <Button
-        title="Log Out"
+        title="Cerrar sesión"
         buttonStyle={styles.closeSessionButton}
         titleStyle={styles.closeSessionText}
         onPress={() => signOutHandler()}

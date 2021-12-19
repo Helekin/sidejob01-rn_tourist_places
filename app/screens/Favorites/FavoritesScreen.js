@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-easy-toast";
 import axios from "axios";
 
@@ -51,9 +52,7 @@ const UserNotLogged = (props) => {
         title="Ir a inicio de sesión"
         containerStyle={{ marginTop: 20, width: "80%" }}
         buttonStyle={{ backgroundColor: "#00a680" }}
-        onPress={() => {
-          navigation.navigate("loginScreen");
-        }}
+        onPress={() => navigation.navigate("login")}
       />
     </View>
   );
@@ -136,8 +135,8 @@ const Place = (props) => {
   );
 };
 
-const FavoritesScreen = (props) => {
-  const { navigation } = props;
+const FavoritesScreen = () => {
+  const navigation = useNavigation();
 
   const [places, setPlaces] = useState(null);
   const [login, setLogin] = useState(false);
