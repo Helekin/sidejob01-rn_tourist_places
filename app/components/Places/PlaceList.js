@@ -87,9 +87,9 @@ const PlaceList = (props) => {
               return <Place place={place} navigation={navigation} />;
             }}
             keyExtractor={(item, index) => index.toString()}
-            onEndReachedThreshold={0.5}
-            ListFooterComponent={<FooterList loading={loading} />}
-            onEndReached={loadMorePlacesHandler}
+            // onEndReachedThreshold={0.5}
+            // ListFooterComponent={<FooterList loading={loading} />}
+            // onEndReached={loadMorePlacesHandler}
           />
         </View>
       ) : (

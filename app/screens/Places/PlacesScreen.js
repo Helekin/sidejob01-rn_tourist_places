@@ -13,7 +13,7 @@ const PlacesScreen = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const pageSize = 6;
+  const pageSize = 10;
 
   useEffect(() => {
     axios
@@ -56,7 +56,7 @@ const PlacesScreen = () => {
       <PlaceList
         places={places}
         loading={loading}
-        loadMorePlacesHandler={loadMorePlacesHandler}
+        // loadMorePlacesHandler={loadMorePlacesHandler}
       />
     </View>
   );
