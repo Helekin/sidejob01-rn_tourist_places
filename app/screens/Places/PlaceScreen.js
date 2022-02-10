@@ -37,7 +37,7 @@ const PlaceTitle = (props) => {
       <Text style={styles.descriptionText}>{description}</Text>
       <Rating
         style={styles.rating}
-        imageSize={20}
+        imageSize={25}
         readonly
         startingValue={parseFloat(rating)}
       />
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     color: "grey",
   },
   rating: {
-    position: "absolute",
+    position: "relative",
     paddingTop: 20,
     right: 0,
   },

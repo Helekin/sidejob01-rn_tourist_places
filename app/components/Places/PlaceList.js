@@ -42,8 +42,10 @@ const Place = (props) => {
           />
         </View>
         <View>
-          <Text style={styles.placeNameText}>{name}</Text>
-          <Text style={styles.placeAddressText}>{address}</Text>
+          <Text style={styles.placeNameText}>{name.substr(0, 45)}</Text>
+          <Text style={styles.placeAddressText}>
+            {address.substr(0, 25)}...
+          </Text>
           <Text style={styles.placeDescriptionText}>
             {description.substr(0, 20)}...
           </Text>
